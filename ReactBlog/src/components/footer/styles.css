@@ -1,0 +1,42 @@
+.text-skin {
+    color: #FFF0BA;
+}
+.insta {
+background-color: #A6A7D4;
+padding: 20px;
+}
+.icons {
+    margin-right: 95px;
+}
+.icons a {
+    display: inline-block;
+    width: 35px;
+    vertical-align: text-bottom;
+    font-size: 20px;
+    margin-left: 76px;
+}
+footer .btn_two {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: 100px;
+    padding: 10px 60px;
+    border: 3px solid #FFF0BA;
+}
+.getintouch {
+    padding: 50px 0 10 0;
+    text-align: center;
+} 
+.btn_two a {
+    color: #FFF0BA;
+}
+li a {
+    color: #431F1A !important;
+    text-align: center;
+}
+.copyright a {
+    color: #000000;
+}

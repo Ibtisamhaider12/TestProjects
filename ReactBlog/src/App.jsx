@@ -29,8 +29,8 @@ function App() {
         <Header/>
         <main>
          {/* <outlet/> */}
+        <img src="https://cdn.shopify.com/s/files/1/0510/6145/7053/files/creative_bg.jpg?v=1699685036" alt="" />
         </main>
-        <h1>hey</h1>
         <Footer/>
       </div>
 

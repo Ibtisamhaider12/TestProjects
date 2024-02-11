@@ -1,17 +1,19 @@
 import conf from '../conf/conf.js';
-import { Client, ID, Databases, Storage, Query } from "appwrite";
+import { Client, ID, Databases, Storage, Query, Account } from "appwrite";
 
 export class Service{
     client = new Client();
     databases;
     bucket;
     
-    constructor(){
+    constructor() {
         this.client
-        .setEndpoint(conf.appwriteUrl)
-        .setProject(conf.appwriteProjectId);
+            .setEndpoint(conf.appwriteUrl)
+            .setProject(conf.appwriteProjectId);
+
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
+        this.account = new Account(this.client); 
     }
 
     async createPost({title, slug, content, featuredImage, status, userId}){
@@ -98,18 +100,18 @@ export class Service{
 
     // file upload service
 
-    async uploadFile(file){
+    async uploadFile(file) {
         try {
-            return await this.bucket.createFile(
-                conf.appwriteBucketId,
-                ID.unique(),
-                file
-            )
+            console.log("User details:", await this.account.get());
+            const result = await this.storage.createFile(file, ['*'], ['write']);
+            console.log("File upload result:", result);
+            return result;
         } catch (error) {
-            console.log("Appwrite serive :: uploadFile :: error", error);
-            return false
+            console.error("Appwrite service :: uploadFile :: error", error);
+            throw error;
         }
     }
+    
 
     async deleteFile(fileId){
         try {

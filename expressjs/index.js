@@ -10,6 +10,18 @@ app.set('view engine','ejs');
 app.get('',(_,res)=>{
     res.sendFile(`${StaticwebPath}/index.html`)
 })
+app.get('/profile',(_,res)=>{
+    const user = {
+        name: 'ibtisam Haider',
+        email: 'ibtisam@test.com',
+        city: 'Peshawar',
+        skills: ['php', 'react','node','js']
+    }
+    res.render('profile',{user})
+})
+app.get('/login',(_,res)=>{
+    res.render('login')
+})
 app.get('/Home',(_,res)=>{
     res.sendFile(`${StaticwebPath}/Home.html`)
 })
@@ -47,4 +59,4 @@ app.get('*',(_,res)=>{
 // ]);
 // });
 
-app.listen(5000);
+// app.listen(5000);
